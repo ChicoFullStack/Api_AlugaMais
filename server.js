@@ -5,6 +5,7 @@ const apiRoutes = require('./src/routes');
 const propertyRoutes = require('./src/routes/propertyRoutes');
 const tenantRoutes = require('./src/routes/tenantRoutes');
 const contractRoutes = require('./src/routes/contractRoutes');
+const cors = require('cors');
 
 
 
@@ -19,6 +20,11 @@ const app = express();
 
 // Middleware para parsing de JSON no corpo das requisições
 app.use(express.json());
+
+// Use the cors middleware
+app.use(cors({
+  origin: 'https://9000-firebase-studio-1749744816547.cluster-duylic2g3fbzerqpzxxbw6helm.cloudworkstations.dev' // Or '*' for all origins (less secure for production)
+}));
 
 // Rotas da APIapi
 app.use('/api', apiRoutes);
