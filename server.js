@@ -22,9 +22,7 @@ const app = express();
 app.use(express.json());
 
 // Use the cors middleware
-app.use(cors({
-  origin: 'https://9000-firebase-studio-1749744816547.cluster-duylic2g3fbzerqpzxxbw6helm.cloudworkstations.dev' // Or '*' for all origins (less secure for production)
-}));
+app.use(cors());
 
 // Rotas da APIapi
 app.use('/api', apiRoutes);
