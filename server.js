@@ -2,9 +2,6 @@ const express = require('express');
 const dotenv = require('dotenv');
 const connectDB = require('./src/config/db');
 const apiRoutes = require('./src/routes');
-const propertyRoutes = require('./src/routes/propertyRoutes');
-const tenantRoutes = require('./src/routes/tenantRoutes');
-const contractRoutes = require('./src/routes/contractRoutes');
 const cors = require('cors');
 
 
@@ -26,11 +23,6 @@ app.use(cors());
 
 // Rotas da APIapi
 app.use('/api', apiRoutes);
-
-app.use('/api/properties', propertyRoutes);
-app.use('/api/tenants', tenantRoutes);
-app.use('/api/contracts', contractRoutes);
-
 
 
 
