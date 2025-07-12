@@ -19,8 +19,21 @@ const app = express();
 app.use(express.json());
 
 // Use the cors middleware
+// Lista de domínios permitidos
+const allowedOrigins = [
+  'https://9000-firebase-studio-1749744816547.cluster-duylic2g3fbzerqpzxxbw6helm.cloudworkstations.dev',
+];
+
 app.use(cors({
-  origin: '*',
+  origin: function (origin, callback) {
+    // Permite requisições sem origem (como de ferramentas internas) ou está na lista
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  },
+  credentials: true, // Se for necessário enviar cookies ou autenticação
 }));
 
 // Rotas da APIapi
