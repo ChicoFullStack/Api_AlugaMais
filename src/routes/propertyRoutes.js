@@ -57,18 +57,18 @@ router.put('/:id', async (req, res) => {
   try {
     const property = await Property.findById(req.params.id);
 
-    if (property) {
-      property.address = address || property.address;
-      property.city = city || property.city;
-      property.state = state || property.state;
-      property.zipCode = zipCode || property.zipCode;
-      property.rentPrice = rentPrice || property.rentPrice;
+if (property) {
+  property.address = address || property.address;
+  property.city = city || property.city;
+  property.state = state || property.state;
+  property.zipCode = zipCode || property.zipCode;
+  property.rentPrice = rentPrice || property.rentPrice;
 
-      const updatedProperty = await property.save();
-      res.json(updatedProperty);
-    } else {
-      res.status(404).json({ message: 'Propriedade não encontrada' });
-    }
+  const updatedProperty = await property.save();
+  res.json(updatedProperty);
+} else {
+  res.status(404).json({ message: 'Propriedade não encontrada' });
+}
   } catch (error) {
     res.status(400).json({ message: error.message });
   }
