@@ -21,7 +21,7 @@ app.use(express.json());
 // Use the cors middleware
 // Lista de domínios permitidos
 const allowedOrigins = [
-  'https://9000-firebase-studio-1749744816547.cluster-duylic2g3fbzerqpzxxbw6helm.cloudworkstations.dev',
+  'https://alugamais.boloko.shop',
 ];
 
 app.use(cors({
