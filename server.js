@@ -19,7 +19,9 @@ const app = express();
 app.use(express.json());
 
 // Use the cors middleware
-app.use(cors());
+app.use(cors({
+  origin: '*',
+}));
 
 // Rotas da APIapi
 app.use('/api', apiRoutes);
