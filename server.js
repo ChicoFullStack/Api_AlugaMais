@@ -18,23 +18,12 @@ const app = express();
 // Middleware para parsing de JSON no corpo das requisições
 app.use(express.json());
 
-// Use the cors middleware
-// Lista de domínios permitidos
-const allowedOrigins = [
-  'https://alugamais.boloko.shop',
-];
-
 app.use(cors({
-  origin: function (origin, callback) {
-    // Permite requisições sem origem (como de ferramentas internas) ou está na lista
-    if (!origin || allowedOrigins.includes(origin)) {
-      callback(null, true);
-    } else {
-      callback(new Error('Not allowed by CORS'));
-    }
-  },
-  credentials: true, // Se for necessário enviar cookies ou autenticação
+  origin: '*',
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization'],
 }));
+
 
 // Rotas da APIapi
 app.use('/api', apiRoutes);
